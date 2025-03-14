@@ -1,0 +1,152 @@
+.about-scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Loading overlay */
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 15, 45, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .loading-content {
+    background-color: rgba(50, 25, 65, 0.9);
+    border: 2px solid #a55eea;
+    border-radius: 12px;
+    padding: 30px 40px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(165, 94, 234, 0.5);
+  }
+  
+  .loading-title {
+    color: #e1b0ff;
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    font-weight: bold;
+  }
+  
+  .progress-bar {
+    height: 12px;
+    background-color: rgba(30, 15, 45, 0.6);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #9c55e4 0%, #a55eea 100%);
+    transition: width 0.3s ease;
+    border-radius: 6px;
+  }
+  
+  .progress-text {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  /* Profile image container - positioned to overlay on the 3D scene */
+  .profile-image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -85%);
+    z-index: 10;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(165, 94, 234, 0.8);
+    box-shadow: 
+      0 0 15px rgba(165, 94, 234, 0.5),
+      0 0 30px rgba(165, 94, 234, 0.3);
+    animation: pulse 3s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(165, 94, 234, 0.5), 0 0 30px rgba(165, 94, 234, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(165, 94, 234, 0.7), 0 0 40px rgba(165, 94, 234, 0.5); }
+    100% { box-shadow: 0 0 15px rgba(165, 94, 234, 0.5), 0 0 30px rgba(165, 94, 234, 0.3); }
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Dual background gradient to represent music and tech careers */
+  .about-scene::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(
+        circle at 25% 25%, 
+        rgba(165, 94, 234, 0.1) 0%,
+        rgba(165, 94, 234, 0) 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%, 
+        rgba(255, 215, 0, 0.1) 0%,
+        rgba(255, 215, 0, 0) 50%
+      );
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .profile-image-container {
+      width: 180px;
+      height: 180px;
+    }
+    
+    .loading-content {
+      padding: 25px;
+    }
+    
+    .loading-title {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profile-image-container {
+      width: 150px;
+      height: 150px;
+    }
+    
+    .loading-title {
+      font-size: 1.4rem;
+    }
+    
+    .loading-content {
+      padding: 20px;
+    }
+  }

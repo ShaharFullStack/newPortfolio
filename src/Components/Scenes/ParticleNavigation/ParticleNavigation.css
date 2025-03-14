@@ -1,0 +1,228 @@
+.particle-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+    background: radial-gradient(circle at center, #050520 0%, #000000 100%);
+}
+
+.particle-navigation {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .section-indicator {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: white;
+    z-index: 10;
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+  
+  .section-label {
+    opacity: 0.7;
+  }
+  
+  .section-name {
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  
+  .navigation-instructions {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: white;
+    z-index: 10;
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  
+  /* Custom cursor styles */
+  .cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
+  
+  .cursor-dot {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: white;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
+
+.canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.section-indicator {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 2rem;
+    padding: 0.7rem 1.5rem;
+    color: white;
+    font-size: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(100, 130, 255, 0.3);
+    border: 1px solid rgba(100, 130, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.section-indicator:hover {
+    background-color: rgba(20, 20, 40, 0.8);
+    box-shadow: 0 0 25px rgba(120, 150, 255, 0.4);
+}
+
+.section-label {
+    opacity: 0.7;
+    font-weight: 300;
+    margin-right: 0.5rem;
+}
+
+.section-name {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, #64B5F6, #E1BEE7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
+}
+
+.navigation-instructions {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 2rem;
+    padding: 0.5rem 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(100, 130, 255, 0.2);
+    border: 1px solid rgba(100, 130, 255, 0.1);
+    transition: all 0.3s ease;
+    animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: translateX(-50%) scale(0.98);
+    }
+
+    100% {
+        opacity: 0.9;
+        transform: translateX(-50%) scale(1.02);
+    }
+}
+
+/* Add a fancy cursor */
+body {
+    cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 999;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+    mix-blend-mode: screen;
+}
+
+.cursor-dot {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-indicator {
+        font-size: 1.2rem;
+        padding: 0.5rem 1.2rem;
+        top: 1.5rem;
+    }
+
+    .navigation-instructions {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+        bottom: 1.5rem;
+    }
+}
+
+/* Add animations when section changes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
